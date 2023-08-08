@@ -1,0 +1,39 @@
+//colar na funcao main de lex.yy.c
+
+int main() {
+    char input[] = "#include <stdio.h>\n\n"
+                    "void compararNumeros(a, b) {\n"
+                    "    int num1, num2;\n\n"
+                    "    // Le os dois numeros\n"
+                    "    printf(\"Digite o primeiro: \");\n"
+                    "    scanf(\"%d\", &num1);\n\n"
+                    "    printf(\"Digite o segundo: \");\n"
+                    "    scanf(\"%d\", &num2);\n\n"
+                    "    // Compara os números\n"
+                    "    if (num1 > num2) {\n"
+                    "        printf(\"O primeiro número %%d é maior do que %%d\\n\", num1, num2);\n"
+                    "    } else if (num2 > num1) {\n"
+                    "        printf(\"O segundo número %%d é maior do que %%d\\n\", num2, num1);\n"
+                    "    } else {\n"
+                    "        printf(\"Os números são iguais.\\n\");\n"
+                    "    }\n"
+                    "}\n\n"
+                    "int main() {\n"
+                    "    compararNumeros();\n"
+                    "    return 0;\n"
+                    "}";
+    YY_BUFFER_STATE buffer; // Declaração de buffer de entrada do Flex.
+
+    // Cria o buffer de entrada usando o input predefinido.
+    buffer = yy_scan_string(input);
+
+    // Chama o analisador léxico para processar o input.
+    yylex();
+
+    // Libera o buffer quando não for mais necessário.
+    yy_delete_buffer(buffer);
+    return 0;
+}
+
+
+
