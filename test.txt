@@ -1,4 +1,7 @@
 //colar na funcao main de lex.yy.c
+//flex analisador.l
+//gcc lex.yy.c -lfl
+//./a.out
 
 int main() {
     char input[] = "#include <stdio.h>\n\n"
